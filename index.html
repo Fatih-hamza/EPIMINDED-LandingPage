@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Epiminded – Stay Ahead</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      margin: 0 0 15px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #1a1a2e;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 30px;
+      flex: 1 1 250px;
+      max-width: 280px;
+      text-align: left;
+      transition: transform 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-card h3 {
+      margin-top: 0;
+      color: #2d2d4d;
+    }
+
+    .newsletter-signup {
+      margin-top: 40px;
+    }
+
+    input[type="email"] {
+      padding: 12px;
+      width: 60%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-size: 1em;
+    }
+
+    button {
+      padding: 12px 30px;
+      background-color: #1a1a2e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #343a60;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+      padding-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Epiminded</h1>
+    <p>Join the newsletter that helps entrepreneurs stay ahead with curated insights, trends, and cross-industry analysis—tailored to your field and interests.</p>
+  </header>
+
+  <div class="section">
+    <h2>Why Epiminded?</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>Tailored Insights</h3>
+        <p>Get updates and trends that matter to your sector—filtered and interpreted just for you.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Cross-Industry Vision</h3>
+        <p>Discover patterns and signals from other industries to anticipate what’s coming next.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Actionable Analysis</h3>
+        <p>Each edition offers not just what’s happening—but what it means for your strategy.</p>
+      </div>
+    </div>
+
+    <div class="newsletter-signup">
+      <h2>Stay Smart. Stay Epiminded.</h2>
+      <form onsubmit="event.preventDefault(); alert('Thanks for subscribing to Epiminded!');">
+        <input type="email" placeholder="Enter your email..." required />
+        <br />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Epiminded. All rights reserved.
+  </footer>
+
+</body>
+</html>
