@@ -1,151 +1,851 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Epiminded – Stay Ahead</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upskill. Anticipate. Thrive. | EPIMinded</title>
+  <!-- HMalphamono font from Google Fonts or similar, fallback to monospace -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@700&display=swap" rel="stylesheet">
   <style>
+    html {
+  scroll-behavior: smooth;
+    }
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f6f8;
-      color: #333;
+      padding: 0;
+      min-height: 100vh;
+      background: #0a0a13;
+      color: #fff;
+      font-family: 'Fira Mono', 'HMalphamono', monospace;
+      box-sizing: border-box;
+      letter-spacing: 0.01em;
     }
-
-    header {
-      background: #1a1a2e;
-      color: white;
-      padding: 60px 20px;
+    .hero-tech {
+      width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(120deg, #0a0a13 80%, #1a1a2f 100%);
+      box-sizing: border-box;
+      padding: 64px 24px 2px 24px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-
-    header h1 {
-      font-size: 2.8em;
-      margin: 0 0 15px;
+    .hero-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 16px #d4a0ff44, 0 2px 8px #000a;
     }
-
-    header p {
-      font-size: 1.2em;
-      max-width: 600px;
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: #d4a0ff;
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 0.03em;
+      text-shadow: 0 0 8px #d4a0ff33;
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: #e0e0e0;
+      margin-bottom: 36px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-shadow: 0 0 6px #1a1a2f99;
+    }
+    .hero-form {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
       margin: 0 auto;
-      line-height: 1.6;
+    }
+    .hero-form input[type="email"] {
+      width: 100%;
+      padding: 18px 20px;
+      border-radius: 7px;
+      border: 2px solid #d4a0ff;
+      background: #181828;
+      color: #fff;
+      font-size: 1.1rem;
+      font-family: inherit;
+      outline: none;
+      margin-bottom: 0;
+      box-shadow: 0 0 16px #d4a0ff22, 0 2px 8px #000a;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+    .hero-form input[type="email"]:focus {
+      border: 2px solid #fff;
+      box-shadow: 0 0 24px #d4a0ff66, 0 2px 8px #000a;
+    }
+    .hero-form button {
+      width: 100%;
+      padding: 18px 0;
+      border-radius: 7px;
+      border: none;
+      background: linear-gradient(90deg, #d4a0ff 0%, #fff 100%);
+      color: #181828;
+      font-size: 1.15rem;
+      font-family: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 0 16px #d4a0ff44, 0 2px 8px #000a;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+    }
+    .hero-form button:hover, .hero-form button:focus {
+      background: linear-gradient(90deg, #fff 0%, #d4a0ff 100%);
+      color: #181828;
+      box-shadow: 0 0 32px #d4a0ff99, 0 2px 8px #000a;
+      outline: none;
+    }
+    /* Futuristic accent lines */
+    .hero-tech::before, .hero-tech::after {
+      content: '';
+      position: absolute;
+      width: 60vw;
+      height: 2px;
+      background: linear-gradient(90deg, #d4a0ff 0%, transparent 100%);
+      left: 20vw;
+      top: 0;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    .hero-tech::after {
+      top: unset;
+      bottom: 0;
+      background: linear-gradient(270deg, #d4a0ff 0%, transparent 100%);
+    }
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 1.6rem;
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      .hero-desc {
+        font-size: 0.98rem;
+      }
+      .hero-form input[type="email"], .hero-form button {
+        padding: 14px 0;
+        font-size: 1rem;
+        border-radius: 5px;
+      }
+      .hero-form {
+        max-width: 98vw;
+      }
+      .hero-tech {
+        min-height: 100vh;
+        padding-top: 32px;
+        padding-bottom: 2px;
+      }
+      .hero-form {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+      }
+      .hero-form input[type="email"], .hero-form button {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+      }
+      .hero-form input[type="email"] {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
     }
 
-    .section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
+    /* Metrics Section */
+    .metrics-section {
+      width: 100vw;
+      background: linear-gradient(180deg, #0C0C0F 60%, #2a1746 100%);
+      padding: 80px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
     }
-
-    .section h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #1a1a2e;
-    }
-
-    .features {
+    .metrics-container {
+      width: 100%;
+      max-width: 1100px;
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
       justify-content: center;
-      margin-top: 30px;
+      align-items: stretch;
+      gap: 0;
+      box-sizing: border-box;
     }
-
-    .feature-card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      padding: 30px;
-      flex: 1 1 250px;
-      max-width: 280px;
-      text-align: left;
-      transition: transform 0.2s ease;
+    .metric-block {
+      flex: 1 1 0;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      position: relative;
+      transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s;
+      will-change: transform;
+      cursor: default;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 0.8s forwards;
     }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
+    .metric-block:nth-child(1) { animation-delay: 0.1s; }
+    .metric-block:nth-child(2) { animation-delay: 0.3s; }
+    .metric-block:nth-child(3) { animation-delay: 0.5s; }
+    .metric-block:hover {
+      /* Removed hover effect for a more static, technological look */
     }
-
-    .feature-card h3 {
-      margin-top: 0;
-      color: #2d2d4d;
-    }
-
-    .newsletter-signup {
-      margin-top: 40px;
-    }
-
-    input[type="email"] {
-      padding: 12px;
-      width: 60%;
-      max-width: 400px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin-bottom: 20px;
-      font-size: 1em;
-    }
-
-    button {
-      padding: 12px 30px;
-      background-color: #1a1a2e;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #343a60;
-    }
-
-    footer {
-      margin-top: 60px;
+    .metric-number {
+      font-size: 48px;
+      font-weight: 700;
+      color: #C58CFF;
       text-align: center;
-      font-size: 0.9em;
-      color: #777;
-      padding-bottom: 40px;
+      margin-bottom: 10px;
+      font-family: inherit;
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+      transition: color 0.18s;
+    }
+    .metric-label {
+      font-size: 16px;
+      color: #E0E0E0;
+      font-weight: 400;
+      text-align: center;
+      line-height: 1.3;
+      margin-bottom: 0;
+      font-family: inherit;
+    }
+    /* Vertical dividers */
+    .metric-block:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 64px;
+      width: 1px;
+      background: rgba(255,255,255,0.10);
+      display: block;
+    }
+    /* Tablet layout */
+    @media (max-width: 1023px) {
+      .metrics-container {
+        flex-wrap: wrap;
+        gap: 0;
+      }
+      .metric-block {
+        min-width: 220px;
+        max-width: 50%;
+        padding: 0 18px 48px 18px;
+      }
+      .metric-block:nth-child(2)::after {
+        display: none;
+      }
+      .metric-block:nth-child(1)::after {
+        display: block;
+      }
+    }
+    /* Mobile layout */
+    @media (max-width: 767px) {
+      .metrics-section {
+        padding: 48px 0;
+      }
+      .metrics-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0 24px;
+      }
+      .metric-block {
+        min-width: 0;
+        max-width: 100%;
+        padding: 0 0 32px 0;
+        border: none;
+      }
+      .metric-block:not(:last-child)::after {
+        display: none;
+      }
+      .metric-number {
+        font-size: 28px;
+      }
+      .metric-label {
+        font-size: 14px;
+      }
+    }
+    @media (max-width: 1023px) and (min-width: 768px) {
+      .metric-number {
+        font-size: 36px;
+      }
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* Insights Section */
+    .insights-section {
+      width: 100vw;
+      background: linear-gradient(90deg, #181828 60%, #2a1746 100%);
+      padding: 56px 0 56px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid rgba(212,160,255,0.08);
+      border-bottom: 1px solid rgba(212,160,255,0.08);
+    }
+    .insights-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      font-family: inherit;
+      color: #e0e0e0;
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      line-height: 1.7;
+      text-shadow: 0 0 8px #2a174655;
+    }
+    .insights-accent {
+      color: #d4a0ff;
+      font-weight: 700;
+      text-shadow: 0 0 8px #d4a0ff55;
+    }
+    .insights-line {
+      margin: 0 0 18px 0;
+      padding: 0;
+      font-size: 2.2rem;
+    }
+    @media (max-width: 700px) {
+      .insights-content {
+        font-size: 1.3rem;
+        padding: 0 16px;
+      }
+      .insights-section {
+        padding: 36px 0 36px 0;
+      }
+      .insights-line {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Why Subscribe Section */
+    .why-subscribe-section {
+      width: 100vw;
+      background: linear-gradient(90deg, #181828 60%, #2a1746 100%);
+      padding: 64px 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid rgba(212,160,255,0.08);
+      border-bottom: 1px solid rgba(212,160,255,0.08);
+    }
+    .why-subscribe-flex {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .why-visual {
+      flex: 1 1 320px;
+      min-width: 260px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .why-text {
+      flex: 2 1 340px;
+      min-width: 220px;
+    }
+    .why-title {
+      color: #d4a0ff;
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .why-desc {
+      color: #e0e0e0;
+      font-size: 1.15rem;
+      margin-bottom: 28px;
+    }
+    .why-benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .why-benefit-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .why-benefit-title {
+      color: #d4a0ff;
+      font-weight: 700;
+      font-size: 1.13rem;
+    }
+    .why-benefit-desc {
+      color: #e0e0e0;
+      font-size: 1.01rem;
+    }
+    @media (max-width: 900px) {
+      .why-subscribe-flex {
+        flex-direction: column;
+        gap: 32px !important;
+        align-items: stretch !important;
+      }
+      .why-visual, .why-text {
+        min-width: 0 !important;
+        width: 100% !important;
+        justify-content: center !important;
+      }
+      .why-visual {
+        margin-bottom: 18px;
+      }
+    }
+
+    /* CTA Section */
+    .cta-section {
+      width: 100vw;
+      background: linear-gradient(90deg, #181828 60%, #2a1746 100%);
+      padding: 48px 0 32px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid rgba(212,160,255,0.08);
+    }
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      font-family: inherit;
+      color: #e0e0e0;
+      font-size: 1.18rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      line-height: 1.7;
+      text-shadow: 0 0 8px #2a174655;
+    }
+    .cta-emoji {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+    .cta-text {
+      font-size: 1.18rem;
+      margin-bottom: 10px;
+      color: #fff;
+      font-weight: 700;
+    }
+    .cta-join {
+      font-size: 1.1rem;
+      color: #d4a0ff;
+      font-weight: 700;
+      margin-bottom: 0;
+      text-shadow: 0 0 8px #d4a0ff55;
+    }
+    .cta-accent {
+      color: #fff;
+      background: linear-gradient(90deg, #d4a0ff 0%, #fff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    @media (max-width: 700px) {
+      .cta-content {
+        font-size: 1.02rem;
+        padding: 0 16px;
+      }
+      .cta-section {
+        padding: 32px 0 24px 0;
+      }
+      .cta-form {
+        max-width: 98vw !important;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .cta-form input[type="email"], .cta-form button {
+        padding: 14px 0 !important;
+        font-size: 1rem !important;
+        border-radius: 5px !important;
+      }
+    }
+
+    /* Footer */
+    .footer {
+      width: 100vw;
+      background: #181828;
+      color: #bdbdbd;
+      text-align: center;
+      font-size: 0.98rem;
+      padding: 18px 0 16px 0;
+      letter-spacing: 0.01em;
+      border-top: 1px solid #2a174633;
+      font-family: inherit;
+    }
+
+    .signal-card {
+      position: relative;
+      width: 340px;
+      min-height: 420px;
+      max-width: 95vw;
+      background: transparent;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px #d4a0ff22, 0 1.5px 0 #d4a0ff11;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      font-family: 'Fira Mono', 'Inter', monospace;
+    }
+    .signal-card-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+      pointer-events: none;
+    }
+    .signal-card-content {
+      position: relative;
+      z-index: 1;
+      padding: 32px 24px 24px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      height: 100%;
+    }
+    .signal-badge {
+      background: #fff;
+      color: #d4a0ff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      border-radius: 16px;
+      padding: 6px 18px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 8px #d4a0ff22;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .signal-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      width: 100%;
+      margin-bottom: 36px;
+    }
+    .signal-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      position: relative;
+    }
+    .signal-icon {
+      position: absolute;
+      left: -40px;
+      top: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .signal-number {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #2a1746;
+      letter-spacing: 0.03em;
+      margin-left: 0;
+      font-family: inherit;
+    }
+    .signal-caption {
+      font-size: 1.08rem;
+      color: #181828;
+      font-weight: 500;
+      opacity: 0.85;
+      margin-left: 0;
+      font-family: inherit;
+    }
+    .signal-btn {
+      margin-top: auto;
+      align-self: flex-start;
+      background: linear-gradient(90deg, #d4a0ff 0%, #c0b3e6 100%);
+      color: #fff;
+      font-family: inherit;
+      font-size: 1.08rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 36px;
+      box-shadow: 0 2px 16px #d4a0ff22;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+    }
+    .signal-btn:hover, .signal-btn:focus {
+      background: linear-gradient(90deg, #c0b3e6 0%, #d4a0ff 100%);
+      color: #2a1746;
+      box-shadow: 0 4px 32px #d4a0ff44;
+      outline: none;
+    }
+    @media (max-width: 500px) {
+      .signal-card {
+        width: 98vw;
+        min-width: 0;
+        padding: 0;
+        border-radius: 18px;
+      }
+      .signal-card-content {
+        padding: 18px 8px 18px 16px;
+      }
+      .signal-icon {
+        left: -28px;
+        width: 24px;
+        height: 24px;
+      }
+      .signal-number {
+        font-size: 1.3rem;
+      }
+      .signal-caption {
+        font-size: 0.98rem;
+      }
+      .signal-btn {
+        font-size: 0.98rem;
+        padding: 10px 18px;
+      }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Epiminded</h1>
-    <p>Join the newsletter that helps entrepreneurs stay ahead with curated insights, trends, and cross-industry analysis—tailored to your field and interests.</p>
-  </header>
-
-  <div class="section">
-    <h2>Why Epiminded?</h2>
-    <div class="features">
-      <div class="feature-card">
-        <h3>Tailored Insights</h3>
-        <p>Get updates and trends that matter to your sector—filtered and interpreted just for you.</p>
+  <section id="hero" class="hero-tech" style="margin-bottom: 0; padding-bottom: 2px;">
+    <div class="hero-title">Upskill. Anticipate. Thrive.</div>
+    <div class="hero-subtitle">Daily Signals & Strategies for the Entrepreneur of Tomorrow</div>
+    <div class="hero-desc">Be the first to know what's changing—and how to lead through it.</div>
+    <form class="hero-form" id="hero-form" onsubmit="event.preventDefault(); handleHeroSubmit();">
+      <input type="email" id="hero-email" placeholder="Enter your email" required>
+      <button type="submit">join epiminded now</button>
+      <div id="hero-success-message" style="display:none;align-items:center;gap:8px;margin-top:8px;font-size:1.08rem;font-weight:600;color:#2fff8f;background:none;"></div>
+    </form>
+  </section>
+  <section class="metrics-section" style="margin-top: 0; padding-top: 32px;">
+    <div class="metrics-container">
+      <div class="metric-block">
+        <div class="metric-number">19,788+</div>
+        <div class="metric-label">satisfied subscribers</div>
       </div>
-      <div class="feature-card">
-        <h3>Cross-Industry Vision</h3>
-        <p>Discover patterns and signals from other industries to anticipate what’s coming next.</p>
+      <div class="metric-block">
+        <div class="metric-number">2,000+</div>
+        <div class="metric-label">Brain Boosters shared</div>
       </div>
-      <div class="feature-card">
-        <h3>Actionable Analysis</h3>
-        <p>Each edition offers not just what’s happening—but what it means for your strategy.</p>
+      <div class="metric-block">
+        <div class="metric-number">92%</div>
+        <div class="metric-label">report improved clarity</div>
       </div>
     </div>
-
-    <div class="newsletter-signup">
-      <h2>Stay Smart. Stay Epiminded.</h2>
-      <form onsubmit="event.preventDefault(); alert('Thanks for subscribing to Epiminded!');">
-        <input type="email" placeholder="Enter your email..." required />
-        <br />
-        <button type="submit">Subscribe</button>
+  </section>
+  <section class="insights-section">
+    <div class="insights-content">
+      <p class="insights-line">
+        <span class="insights-accent" id="emph-what">What</span> matters, <span class="insights-accent" id="emph-why">Why</span> it matters, and what to do <span class="insights-accent" id="emph-next">Next</span>
+      </p>
+    </div>
+  </section>
+  <section class="why-subscribe-section" style="background: linear-gradient(90deg, #181828 60%, #2a1746 100%); padding: 64px 0; position:relative; overflow:hidden;">
+    <!-- Subtle grid and glow background -->
+    <canvas id="why-bg-grid" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;pointer-events:none;">
+      <div style="width:320px;height:320px;border-radius:50%;background:radial-gradient(circle, #d4a0ff33 0%, #18182800 70%);filter:blur(8px);"></div>
+    </div>
+    <div class="why-subscribe-flex" style="display: flex; align-items: flex-start; justify-content: center; max-width: 1100px; margin: 0 auto; gap: 48px; flex-wrap: wrap; position:relative; z-index:2;">
+      <!-- Left: Main Visual -->
+      <div class="why-visual" style="flex: 1 1 320px; min-width: 260px; display: flex; align-items: flex-start; justify-content: center;">
+        <div class="signal-card">
+          <div class="signal-card-bg">
+            <svg width="100%" height="100%" viewBox="0 0 340 480" fill="none" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;">
+              <!-- Left purple semi-circle -->
+              <circle cx="0" cy="240" r="220" fill="#d4a0ff"/>
+              <!-- Right white background -->
+              <rect x="120" y="0" width="220" height="480" fill="#fff"/>
+              <!-- Indigo accent ellipse -->
+              <ellipse cx="260" cy="420" rx="60" ry="32" fill="#c0b3e6" fill-opacity="0.45"/>
+            </svg>
+          </div>
+          <div class="signal-card-content">
+            <div class="signal-badge">New signals every day</div>
+            <div class="signal-stats">
+              <div class="signal-stat">
+                <div class="signal-icon">
+                  <svg width="32" height="32" viewBox="0 0 32 32"><polygon points="16,3 20,13 31,13 22,19 25,29 16,23 7,29 10,19 1,13 12,13" fill="#fff" stroke="#c0b3e6" stroke-width="2"/></svg>
+                </div>
+                <div class="signal-number">19,788+</div>
+                <div class="signal-caption">satisfied subscribers</div>
+              </div>
+              <div class="signal-stat">
+                <div class="signal-icon">
+                  <svg width="32" height="32" viewBox="0 0 32 32"><rect x="7" y="7" width="18" height="18" rx="5" fill="#fff" stroke="#c0b3e6" stroke-width="2"/><circle cx="16" cy="16" r="5" fill="#d4a0ff"/></svg>
+                </div>
+                <div class="signal-number">92%</div>
+                <div class="signal-caption">report improved clarity</div>
+              </div>
+            </div>
+            <a href="#hero" class="signal-btn" style="text-decoration: none;">Join now</a>
+          </div>
+        </div>
+      </div>
+      <!-- Right: Text with Icons -->
+      <div class="why-text" style="flex: 2 1 340px; min-width: 220px;">
+        <div class="why-title" style="color: #d4a0ff; font-size: 2.1rem; font-weight: 700; margin-bottom: 10px;">Why Subscribe?</div>
+        <div class="why-desc" style="color: #e0e0e0; font-size: 1.15rem; margin-bottom: 28px;">Every email gives you real value in under 3 minutes. Here's what you get:</div>
+        <div class="why-benefits" style="display: flex; flex-direction: column; gap: 28px;">
+          <div class="why-benefit-row" style="display: flex; align-items: flex-start; gap: 18px;">
+            <!-- Trending Arrow Icon -->
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="#d4a0ff" stroke-width="2" fill="#2a1746"/><polyline points="10,18 16,12 22,18" fill="none" stroke="#d4a0ff" stroke-width="2"/><line x1="16" y1="12" x2="16" y2="22" stroke="#d4a0ff" stroke-width="2"/></svg>
+            <div>
+              <div class="why-benefit-title" style="color: #d4a0ff; font-weight: 700; font-size: 1.13rem;">Latest industry shifts</div>
+              <div class="why-benefit-desc" style="color: #e0e0e0; font-size: 1.01rem;">Stay updated with curated signals from tech, health, finance, and more.</div>
+            </div>
+          </div>
+          <div class="why-benefit-row" style="display: flex; align-items: flex-start; gap: 18px;">
+            <!-- Network/Connection Icon -->
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="#d4a0ff" stroke-width="2" fill="#2a1746"/><circle cx="10" cy="22" r="2" fill="#d4a0ff"/><circle cx="22" cy="10" r="2" fill="#d4a0ff"/><circle cx="22" cy="22" r="2" fill="#d4a0ff"/><line x1="10" y1="22" x2="22" y2="10" stroke="#d4a0ff" stroke-width="2"/><line x1="10" y1="22" x2="22" y2="22" stroke="#d4a0ff" stroke-width="2"/></svg>
+            <div>
+              <div class="why-benefit-title" style="color: #d4a0ff; font-weight: 700; font-size: 1.13rem;">Cross-pollinated insights</div>
+              <div class="why-benefit-desc" style="color: #e0e0e0; font-size: 1.01rem;">Discover ideas that work in other industries before they go mainstream.</div>
+            </div>
+          </div>
+          <div class="why-benefit-row" style="display: flex; align-items: flex-start; gap: 18px;">
+            <!-- Gear/Brain Icon -->
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="#d4a0ff" stroke-width="2" fill="#2a1746"/><g stroke="#d4a0ff" stroke-width="2"><circle cx="16" cy="16" r="5" fill="#d4a0ff33"/><path d="M16 11v-3"/><path d="M16 21v3"/><path d="M11 16h-3"/><path d="M21 16h3"/><path d="M19.54 12.46l2.12-2.12"/><path d="M12.46 19.54l-2.12 2.12"/><path d="M12.46 12.46l-2.12-2.12"/><path d="M19.54 19.54l2.12 2.12"/></g></svg>
+            <div>
+              <div class="why-benefit-title" style="color: #d4a0ff; font-weight: 700; font-size: 1.13rem;">AI-curated strategies</div>
+              <div class="why-benefit-desc" style="color: #e0e0e0; font-size: 1.01rem;">Get practical, pattern-based tactics to act faster and smarter.</div>
+            </div>
+          </div>
+          <div class="why-benefit-row" style="display: flex; align-items: flex-start; gap: 18px;">
+            <!-- Checkmark Icon -->
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="#d4a0ff" stroke-width="2" fill="#2a1746"/><polyline points="10,18 15,23 22,12" fill="none" stroke="#d4a0ff" stroke-width="2"/></svg>
+            <div>
+              <div class="why-benefit-title" style="color: #d4a0ff; font-weight: 700; font-size: 1.13rem;">No fluff</div>
+              <div class="why-benefit-desc" style="color: #e0e0e0; font-size: 1.01rem;">Just clear thinking, smart actions, and real perspective. Nothing extra.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-section">
+    <div class="cta-content">
+      <div class="cta-emoji">💡</div>
+      <div class="cta-text">Every morning, one email. Big ideas. Real insights. No fluff.</div>
+      <div class="cta-join">Join <span class="cta-accent">EPIMinded</span> — The Daily Augmented Entrepreneur</div>
+      <form class="cta-form" id="cta-form" onsubmit="event.preventDefault(); handleCtaSubmit();" style="margin-top: 24px; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 480px; margin-left: auto; margin-right: auto; gap: 12px;">
+        <input type="email" id="cta-email" placeholder="Enter your email" required style="width: 100%; padding: 16px 18px; border-radius: 7px; border: 2px solid #d4a0ff; background: #181828; color: #fff; font-size: 1.1rem; font-family: inherit; outline: none; box-shadow: 0 0 16px #d4a0ff22, 0 2px 8px #000a; transition: border 0.2s, box-shadow 0.2s;" />
+        <button type="submit" style="width: 100%; padding: 16px 0; border-radius: 7px; border: none; background: linear-gradient(90deg, #d4a0ff 0%, #fff 100%); color: #181828; font-size: 1.15rem; font-family: inherit; font-weight: 700; cursor: pointer; box-shadow: 0 0 16px #d4a0ff44, 0 2px 8px #000a; letter-spacing: 0.04em; text-transform: uppercase; transition: background 0.18s, color 0.18s, box-shadow 0.18s;">Join now</button>
+        <div id="cta-success-message" style="display:none;align-items:center;gap:8px;margin-top:8px;font-size:1.08rem;font-weight:600;color:#2fff8f;background:none;"></div>
       </form>
     </div>
-  </div>
-
-  <footer>
-    &copy; 2025 Epiminded. All rights reserved.
+  </section>
+  <footer class="footer">
+    <div class="footer-content">&copy; 2024 EPIMinded. All rights reserved.</div>
   </footer>
+  <script>
+  // Subtle grid with random glyphs
+  (function(){
+    const canvas = document.getElementById('why-bg-grid');
+    if (!canvas) return;
+    function resize() {
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+    }
+    function drawGrid() {
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      const dpr = window.devicePixelRatio || 1;
+      const w = canvas.offsetWidth, h = canvas.offsetHeight;
+      ctx.save();
+      ctx.scale(dpr, dpr);
+      // Grid
+      ctx.strokeStyle = 'rgba(212,160,255,0.08)';
+      ctx.lineWidth = 1;
+      for(let x=0;x<w;x+=80){
+        ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke();
+      }
+      for(let y=0;y<h;y+=80){
+        ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();
+      }
+      // Random glyphs
+      ctx.font = '18px monospace';
+      ctx.fillStyle = 'rgba(212,160,255,0.13)';
+      for(let x=0;x<w;x+=80){
+        for(let y=0;y<h;y+=80){
+          if(Math.random()<0.22){
+            ctx.save();
+            ctx.translate(x+40,y+40);
+            if(Math.random()<0.5){
+              // plus sign
+              ctx.fillText('+',-6,7);
+            }else{
+              // crosshair
+              ctx.beginPath();ctx.moveTo(-7,0);ctx.lineTo(7,0);ctx.moveTo(0,-7);ctx.lineTo(0,7);ctx.strokeStyle='rgba(212,160,255,0.13)';ctx.lineWidth=2;ctx.stroke();
+            }
+            ctx.restore();
+          }
+        }
+      }
+      ctx.restore();
+    }
+    function redraw(){resize();drawGrid();}
+    window.addEventListener('resize', redraw);
+    setTimeout(redraw, 100);
+    setInterval(drawGrid, 3000); // refresh glyphs every few seconds
+  })();
 
+  function handleCtaSubmit() {
+    var form = document.getElementById('cta-form');
+    var input = document.getElementById('cta-email');
+    var msg = document.getElementById('cta-success-message');
+    if (!input.checkValidity()) return;
+    // Hide input and button
+    input.style.display = 'none';
+    form.querySelector('button[type="submit"]').style.display = 'none';
+    // Show success message
+    msg.innerHTML = '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" style="vertical-align:middle;"><circle cx="11" cy="11" r="11" fill="#2fff8f33"/><path d="M6 12l3 3 7-7" stroke="#2fff8f" stroke-width="2" fill="none"/></svg> You are in, smart move !';
+    msg.style.display = 'flex';
+    // Reload after 3 seconds
+    setTimeout(function(){ window.location.reload(); }, 3000);
+  }
+
+  function handleHeroSubmit() {
+    var input = document.getElementById('hero-email');
+    var msg = document.getElementById('hero-success-message');
+    if (!input.checkValidity()) return;
+    msg.innerHTML = '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" style="vertical-align:middle;"><circle cx="11" cy="11" r="11" fill="#2fff8f33"/><path d="M6 12l3 3 7-7" stroke="#2fff8f" stroke-width="2" fill="none"/></svg> You are in, smart move !';
+    msg.style.display = 'flex';
+    setTimeout(function(){ window.location.reload(); }, 3000);
+  }
+  </script>
 </body>
 </html>
